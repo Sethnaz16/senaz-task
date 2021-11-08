@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../button/Button';
+import DateTracker from '../date/DateTracker';
 
 const Header = (props) => {
 
@@ -10,15 +11,13 @@ const Header = (props) => {
   return (
     <header>
       <h2>{props.welcomeTitle}</h2>
-      <h2>Welcome to {props.focusTitle} Task Tracker</h2>
+      <DateTracker />
       <Button bgColor='green' text="Let's go!" onClick={taskTracker}/>
     </header>
   )
 }
 
-let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 Header.defaultProps = {
-  focusTitle: new Date().toLocaleString("en-US", options),
   welcomeTitle: "Hi Seth & Naz!"
 }
 
