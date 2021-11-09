@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import logo from "./logo.svg"
 import "./App.css"
 import Header from "./components/header/Header";
 import Tasks from "./components/tasks/Tasks";
+import AddTask from "./components/add/AddTask";
 
 
 
@@ -40,10 +40,16 @@ const App = () => {
       task.id === id ? {...task, reminder: !task.reminder} : task))
   }
 
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = { id, ...task }
+    setTasks([...tasks, newTask])
+  }
+
   return (
     <div className="container">
-      <img src={logo} className="App-logo" alt="logo" />
       <Header />
+      <AddTask onAdd={addTask} />
       { tasks.length > 0 ? <Tasks tasks={tasks} 
       onDelete={deleteTask} 
       onToggle={toggleReminder}

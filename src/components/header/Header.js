@@ -12,7 +12,7 @@ const Header = (props) => {
     <header>
       <h2>{props.welcomeTitle}</h2>
       <DateTracker />
-      <Button bgColor='green' text="Let's go!" onClick={taskTracker}/>
+      <Button bgColor='green' text="Add Task" onClick={taskTracker}/>
     </header>
   )
 }
