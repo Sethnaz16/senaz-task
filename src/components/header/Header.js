@@ -4,15 +4,11 @@ import DateTracker from '../date/DateTracker';
 
 const Header = (props) => {
 
-  const taskTracker = () => {
-    console.log('Goint to task tracker page.');
-  }
-
   return (
     <header>
       <h2>{props.welcomeTitle}</h2>
       <DateTracker />
-      <Button bgColor='green' text="Add Task" onClick={taskTracker}/>
+      <Button bgColor={props.showAdd ? 'grey' : 'green'} text={props.showAdd ? 'Close' : 'Add'} onClick={props.onAdd}/>
     </header>
   )
 }
